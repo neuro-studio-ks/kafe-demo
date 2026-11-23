@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Лулуми - семейное кафе с игровой в Химках</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Семейное кафе «Лулуми» в Химках, ЖК «Квартал Ивакино». Завтраки, обеды, кофе и детская игровая. Хорошо детям - спокойно родителям.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF4EA;
+    --surface:#FFFFFF;
+    --soft:#F5E6D6;
+    --accent:#E0794F;
+    --accent-dark:#C45F38;
+    --text:#3B2D26;
+    --muted:#8A766B;
+    --sage:#7C8B6A;
+    --radius:22px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Nunito',sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(250,244,234,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(59,45,38,.07);
+  }
+  .header-in{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;max-width:1120px;margin:0 auto;
+  }
+  .logo{
+    font-family:'Caveat',cursive;font-size:32px;font-weight:600;
+    color:var(--accent-dark);text-decoration:none;
+  }
+  nav a{
+    color:var(--text);text-decoration:none;font-weight:600;font-size:15px;
+    margin-left:26px;
+  }
+  nav a:hover{color:var(--accent-dark)}
+  .btn{
+    display:inline-block;background:var(--accent);color:#fff;
+    font-weight:800;font-size:17px;text-decoration:none;
+    padding:15px 34px;border-radius:999px;border:none;cursor:pointer;
+    box-shadow:0 8px 20px rgba(224,121,79,.35);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(224,121,79,.42)}
+  .btn-small{padding:10px 22px;font-size:15px}
+  @media(max-width:820px){ nav{display:none} }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:88vh;display:flex;align-items:center;overflow:hidden}
+  .hero-bg{
+    position:absolute;inset:0;
+    background:url('assets/hero.jpg') center right/cover no-repeat;
+  }
+  .hero-bg::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(255,250,242,.82) 0%, rgba(255,250,242,.72) 42%, rgba(255,248,240,.38) 62%, rgba(255,248,240,.02) 100%);
+  }
+  @media(max-width:700px){
+    .hero-bg::after{background:rgba(255,250,242,.78)}
+  }
+  .hero-in{position:relative;z-index:2;padding:90px 24px}
+  .hero h1{
+    font-size:clamp(34px,5.2vw,58px);
+    font-weight:800;line-height:1.15;letter-spacing:-.5px;
+    max-width:600px;
+    text-shadow:0 2px 18px rgba(255,252,246,.9);
+  }
+  .hero h1 em{
+    font-style:normal;color:#D8572A;
+    background:linear-gradient(transparent 62%, #FFD9A8 62%);
+    padding:0 6px;border-radius:6px;
+  }
+  .hero .sub{
+    margin-top:20px;font-size:19px;color:#5C463A;font-weight:600;
+    max-width:480px;text-shadow:0 1px 12px rgba(255,252,246,.9);
+  }
+  .hero .caveat{
+    font-family:'Caveat',cursive;font-size:28px;color:#5E7340;font-weight:600;
+    margin-top:14px;display:block;
+    transform:rotate(-2deg);
+    text-shadow:0 1px 10px rgba(255,252,246,.9);
+  }
+  .hero .btn{margin-top:32px}
+  .hero .place{
+    margin-top:18px;font-size:15px;color:#5E4B3F;font-weight:700;
+    text-shadow:0 1px 10px rgba(255,252,246,.9);
+  }
+
+  /* игривые плавающие фигуры */
+  .floaty{
+    position:absolute;z-index:1;pointer-events:none;
+    animation:floaty 7s ease-in-out infinite;
+    filter:drop-shadow(0 6px 10px rgba(59,45,38,.12));
+  }
+  @keyframes floaty{
+    0%,100%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(-18px) rotate(6deg)}
+  }
+  @keyframes floaty2{
+    0%,100%{transform:translateY(0) rotate(0deg)}
+    50%{transform:translateY(14px) rotate(-8deg)}
+  }
+  .floaty.f2{animation-name:floaty2;animation-duration:8.5s}
+  .floaty.f3{animation-duration:6s;animation-delay:-2s}
+  .floaty.f4{animation-name:floaty2;animation-duration:9.5s;animation-delay:-4s}
+  .floaty.f5{animation-duration:7.5s;animation-delay:-1s}
+  @media(max-width:700px){
+    .floaty{transform:scale(.65)}
+    .floaty.hide-m{display:none}
+    .floaty.f1{top:9%;right:-6px}
+    .floaty.f3{top:auto;bottom:24%;right:8px}
+    .floaty.f2{top:auto;bottom:6%;right:20%}
+  }
+
+  /* ---------- sections ---------- */
+  section{padding:84px 0}
+  .kicker{
+    font-family:'Caveat',cursive;font-size:28px;color:var(--accent-dark);
+  }
+  h2{
+    font-size:clamp(28px,3.6vw,42px);font-weight:800;
+    line-height:1.2;letter-spacing:-.4px;margin:6px 0 18px;
+  }
+  .lead{font-size:18px;color:var(--muted);max-width:640px}
+
+  /* боль */
+  .pain-list{margin-top:36px;display:grid;gap:18px}
+  .pain{
+    background:var(--surface);border-radius:var(--radius);
+    padding:26px 30px;display:flex;gap:20px;align-items:flex-start;
+    box-shadow:0 4px 18px rgba(59,45,38,.05);
+  }
+  .pain .dot{
+    flex:0 0 46px;height:46px;border-radius:50%;
+    background:var(--soft);display:flex;align-items:center;justify-content:center;
+    font-size:22px;
+  }
+  .pain p{font-size:17px}
+  .pain b{display:block;font-size:18px;margin-bottom:2px}
+
+  /* поворот - фото + текст */
+  .split{
+    display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;
+  }
+  .split.rev > .split-img{order:2}
+  @media(max-width:820px){
+    .split{grid-template-columns:1fr;gap:30px}
+    .split.rev > .split-img{order:0}
+  }
+  .split-img{border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 34px rgba(59,45,38,.12)}
+  .split-img img{width:100%;height:100%;object-fit:cover;aspect-ratio:3/2}
+  .ticks{margin-top:22px;display:grid;gap:12px}
+  .ticks li{
+    list-style:none;font-size:17px;padding-left:34px;position:relative;
+  }
+  .ticks li::before{
+    content:'✓';position:absolute;left:0;top:0;
+    color:var(--sage);font-weight:800;font-size:20px;
+  }
+
+  /* меню */
+  .menu{background:var(--soft);border-radius:32px}
+  .menu-grid{
+    margin-top:40px;display:grid;
+    grid-template-columns:repeat(3,1fr);gap:26px;
+  }
+  @media(max-width:820px){.menu-grid{grid-template-columns:1fr}}
+  .dish{
+    background:var(--surface);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 6px 20px rgba(59,45,38,.07);
+    display:flex;flex-direction:column;
+  }
+  .dish img{aspect-ratio:3/2;object-fit:cover;width:100%}
+  .dish .dish-in{padding:24px 26px 28px}
+  .dish h3{font-size:21px;font-weight:800;margin-bottom:8px}
+  .dish p{font-size:16px;color:var(--muted)}
+  .dish .price{margin-top:14px;font-weight:800;color:var(--accent-dark);font-size:16px}
+
+  /* планировщик визита - фирменный ход */
+  .planner{background:var(--sage);border-radius:32px;color:#fff;padding:56px 40px}
+  .planner h2{color:#fff}
+  .planner .lead{color:rgba(255,255,255,.85)}
+  .planner-btns{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px}
+  .planner-btns button{
+    font-family:'Nunito',sans-serif;font-weight:700;font-size:16px;
+    padding:13px 26px;border-radius:999px;border:2px solid rgba(255,255,255,.6);
+    background:transparent;color:#fff;cursor:pointer;
+    transition:background .15s ease,color .15s ease;
+  }
+  .planner-btns button.active,.planner-btns button:hover{
+    background:#fff;color:var(--sage);border-color:#fff;
+  }
+  .planner-out{
+    margin-top:26px;background:rgba(255,255,255,.14);
+    border-radius:var(--radius);padding:26px 30px;
+    font-size:18px;min-height:96px;
+  }
+  .planner-out b{color:#FFE3CF}
+
+  /* о нас */
+  .about-note{
+    font-family:'Caveat',cursive;font-size:24px;color:var(--sage);
+    margin-top:18px;display:block;
+  }
+
+  /* контакты */
+  .contact-card{
+    background:var(--surface);border-radius:32px;
+    padding:52px 46px;text-align:center;
+    box-shadow:0 10px 30px rgba(59,45,38,.08);
+  }
+  .contact-card .addr{font-size:20px;font-weight:700;margin:14px 0 4px}
+  .contact-card .hint{color:var(--muted);font-size:16px;margin-bottom:8px}
+  .contact-card .btn{margin-top:26px}
+
+  footer{
+    padding:34px 0;color:var(--muted);font-size:14px;text-align:center;
+    border-top:1px solid rgba(59,45,38,.08);
+  }
+  footer a{color:var(--accent-dark);text-decoration:none;font-weight:700}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <a class="logo" href="#top">Лулуми</a>
+    <nav>
+      <a href="#menu">Меню</a>
+      <a href="#kids">Детям</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Как найти</a>
+    </nav>
+    <a class="btn btn-small" href="https://t.me/lulumi_cafe" target="_blank" rel="noopener">Написать в Telegram</a>
+  </div>
+</header>
+
+<!-- ПЕРВЫЙ ЭКРАН -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+
+  <!-- игривые фигуры -->
+  <svg class="floaty f1" style="top:16%;right:8%" width="64" height="80" viewBox="0 0 64 80" aria-hidden="true">
+    <path d="M32 6 C48 6 58 20 58 34 C58 50 44 62 32 62 C20 62 6 50 6 34 C6 20 16 6 32 6 Z" fill="#E0794F"/>
+    <path d="M32 62 L28 70 L36 70 Z" fill="#C45F38"/>
+    <path d="M32 70 C32 74 30 76 30 79" stroke="#C45F38" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <ellipse cx="22" cy="24" rx="7" ry="10" fill="#F9A87F" opacity=".8"/>
+  </svg>
+  <svg class="floaty f2" style="top:58%;right:22%" width="52" height="52" viewBox="0 0 52 52" aria-hidden="true">
+    <path d="M26 3 L32 18 L48 19 L36 30 L40 46 L26 37 L12 46 L16 30 L4 19 L20 18 Z" fill="#F2B64B"/>
+  </svg>
+  <svg class="floaty f3" style="top:34%;right:26%" width="46" height="42" viewBox="0 0 46 42" aria-hidden="true">
+    <path d="M23 38 C10 28 3 20 3 12 C3 6 8 2 14 2 C18 2 21 4 23 8 C25 4 28 2 32 2 C38 2 43 6 43 12 C43 20 36 28 23 38 Z" fill="#E98FA3"/>
+  </svg>
+  <svg class="floaty f4 hide-m" style="top:70%;right:6%" width="70" height="46" viewBox="0 0 70 46" aria-hidden="true">
+    <path d="M6 30 C18 10 30 40 42 18 C50 4 60 14 64 8" stroke="#7C8B6A" stroke-width="5" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="floaty f5 hide-m" style="top:10%;right:34%" width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+    <circle cx="20" cy="20" r="16" fill="#F6D8B8"/>
+    <circle cx="20" cy="20" r="9" fill="#E0794F"/>
+  </svg>
+
+  <div class="wrap hero-in">
+    <h1>Семейное кафе с игровой в Химках - <em>спокойно родителям</em></h1>
+    <p class="sub">Завтраки, обеды и горячий кофе для вас - и большая игровая комната для детей. Напротив детского сада в ЖК «Квартал Ивакино».</p>
+    <span class="caveat">место, где хорошо детям</span>
+    <a class="btn" href="https://t.me/lulumi_cafe" target="_blank" rel="noopener">Написать в Telegram</a>
+    <p class="place">📍 Химки, ЖК «Квартал Ивакино», корпус 4</p>
+  </div>
+</div>
+
+<!-- БОЛЬ -->
+<section>
+  <div class="wrap">
+    <span class="kicker">знакомо?</span>
+    <h2>С ребёнком «просто посидеть в кафе» - целая экспедиция</h2>
+    <div class="pain-list">
+      <div class="pain">
+        <div class="dot">☕</div>
+        <p><b>Кофе всегда навынос и в спешке</b>В обычной кофейне ребёнку нечем заняться - пять минут, и приходится уходить.</p>
+      </div>
+      <div class="pain">
+        <div class="dot">🪑</div>
+        <p><b>Неудобно и шумно</b>Нет детского стульчика, некуда поставить коляску, и кажется, что все смотрят на вас.</p>
+      </div>
+      <div class="pain">
+        <div class="dot">🏠</div>
+        <p><b>Дома «стены давят»</b>Хочется выбраться и пообщаться со взрослыми - но так, чтобы и ребёнку было хорошо.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОВОРОТ -->
+<section>
+  <div class="wrap split">
+    <div class="split-img"><img src="assets/playroom.jpg" alt="Детская игровая комната в кафе Лулуми" loading="lazy"></div>
+    <div>
+      <span class="kicker">мы придумали такое место</span>
+      <h2>Пока дети играют - вы наконец пьёте горячий кофе</h2>
+      <p class="lead">«Лулуми» - семейное кафе, где всё устроено вокруг семьи, а не наоборот.</p>
+      <ul class="ticks">
+        <li>Большая игровая комната с мягкими модулями</li>
+        <li>Детские стульчики и место для коляски</li>
+        <li>Меню, которое едят и дети, и взрослые</li>
+        <li>Можно не спешить - у нас это нормально</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- МЕНЮ -->
+<section>
+  <div class="wrap menu" id="menu" style="padding:56px 40px">
+    <span class="kicker">что попробовать</span>
+    <h2>Вкусно и утром, и днём, и «просто за какао»</h2>
+    <div class="menu-grid">
+      <div class="dish">
+        <img src="assets/breakfast.jpg" alt="Завтрак в кафе Лулуми - сырники и капучино" loading="lazy">
+        <div class="dish-in">
+          <h3>Завтраки</h3>
+          <p>Сырники, каши и горячий кофе - чтобы начать день без спешки, хотя бы полчаса для себя.</p>
+          <div class="price">Цены уточняйте в Telegram</div>
+        </div>
+      </div>
+      <div class="dish">
+        <img src="assets/family.jpg" alt="Мама с ребёнком обедают в кафе Лулуми" loading="lazy">
+        <div class="dish-in">
+          <h3>Обеды всей семьёй</h3>
+          <p>Поесть вместе, поболтать - а потом дети отправляются исследовать игровую.</p>
+          <div class="price">Цены уточняйте в Telegram</div>
+        </div>
+      </div>
+      <div class="dish">
+        <img src="assets/dessert.jpg" alt="Десерты и какао с маршмеллоу в кафе Лулуми" loading="lazy">
+        <div class="dish-in">
+          <h3>Десерты и какао</h3>
+          <p>Морковный торт, какао с маршмеллоу и печенье - повод заглянуть на прогулке с коляской.</p>
+          <div class="price">Цены уточняйте в Telegram</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ДЕТЯМ -->
+<section id="kids">
+  <div class="wrap split rev">
+    <div class="split-img"><img src="assets/party.jpg" alt="Детский мастер-класс по рисованию в кафе Лулуми" loading="lazy"></div>
+    <div>
+      <span class="kicker">детям здесь интересно</span>
+      <h2>Игровая, мастер-классы и праздники</h2>
+      <p class="lead">Иногда лучший отдых для родителей - это когда детям интересно.</p>
+      <ul class="ticks">
+        <li>Игровая комната - для детей от года до школьников</li>
+        <li>Мастер-классы: рисование, творчество, кухня</li>
+        <li>Детские праздники и дни рождения «под ключ»</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ПЛАНИРОВЩИК ВИЗИТА -->
+<section>
+  <div class="wrap">
+    <div class="planner">
+      <span class="kicker" style="color:#FFE3CF">когда к нам заглянуть?</span>
+      <h2>Выберите вашу ситуацию - подскажем, что взять</h2>
+      <p class="lead">Нажмите на вариант, который похож на ваш день.</p>
+      <div class="planner-btns">
+        <button data-plan="morning">🌅 Утро с коляской</button>
+        <button data-plan="noon">🎒 После садика</button>
+        <button data-plan="weekend">👨‍👩‍👧 Семейный выходной</button>
+        <button data-plan="party">🎂 Нужен праздник</button>
+      </div>
+      <div class="planner-out" id="plannerOut">Здесь появится подсказка 👆</div>
+    </div>
+  </div>
+</section>
+
+<!-- О НАС -->
+<section id="about">
+  <div class="wrap split">
+    <div class="split-img"><img src="assets/hero.jpg" alt="Интерьер семейного кафе Лулуми" loading="lazy"></div>
+    <div>
+      <span class="kicker">наша история</span>
+      <h2>Лулуми делают не вещи - его делаете вы</h2>
+      <p class="lead">Мы продумали интерьер до мелочей, выбрали красивую посуду и придумали меню. Но по-настоящему живым кафе делают люди: каждая улыбка, каждый детский смех и каждая выпитая чашка кофе.</p>
+      <p class="lead" style="margin-top:14px">Мы хотим, чтобы вам здесь было хорошо - чтобы хотелось возвращаться, встречаться, праздновать и просто быть вместе.</p>
+      <span class="about-note">- команда Лулуми 🧡</span>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section id="contacts">
+  <div class="wrap">
+    <div class="contact-card">
+      <span class="kicker">приходите знакомиться</span>
+      <h2>Ждём вас в Лулуми</h2>
+      <p class="addr">📍 Химки, ЖК «Квартал Ивакино», корпус 4</p>
+      <p class="hint">напротив детского сада · {{режим работы}} · {{телефон}}</p>
+      <p class="hint">Забронировать столик, спросить про меню или праздник - проще всего в Telegram:</p>
+      <a class="btn" href="https://t.me/lulumi_cafe" target="_blank" rel="noopener">Написать в Telegram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Семейное кафе «Лулуми» · Химки, ЖК «Квартал Ивакино» · <a href="https://t.me/lulumi_cafe" target="_blank" rel="noopener">@lulumi_cafe</a>
+  </div>
+</footer>
+
+<script>
+  var plans = {
+    morning: 'Утром у нас тихо и светло: закажите <b>завтрак и капучино</b>, пока малыш осваивает игровую. Коляска поместится у столика - места хватит.',
+    noon: 'После садика заходите на <b>обед</b>: ребёнок поест и разомнётся в игровой, а вы спокойно допьёте кофе, пока он не остыл.',
+    weekend: 'В выходной берите <b>всю семью</b>: обед, десерты и какао с маршмеллоу. А дальше - игровая и мастер-классы, дети сами не захотят уходить.',
+    party: 'Праздник соберём <b>под ключ</b>: программа, мастер-класс, угощение. Напишите нам в Telegram - расскажем свободные даты.'
+  };
+  var btns = document.querySelectorAll('.planner-btns button');
+  var out = document.getElementById('plannerOut');
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      btns.forEach(function(x){ x.classList.remove('active'); });
+      b.classList.add('active');
+      out.innerHTML = plans[b.getAttribute('data-plan')];
+    });
+  });
+</script>
+
+</body>
+</html>
